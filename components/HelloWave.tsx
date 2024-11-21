@@ -10,11 +10,12 @@ import Animated, {
 import { ThemedText } from '@/components/ThemedText';
 
 export function HelloWave() {
+
   const rotationAnimation = useSharedValue(0);
 
   rotationAnimation.value = withRepeat(
     withSequence(withTiming(25, { duration: 150 }), withTiming(0, { duration: 150 })),
-    4 // Run the animation 4 times
+    10 // Run the animation 4 times
   );
 
   const animatedStyle = useAnimatedStyle(() => ({
@@ -30,7 +31,7 @@ export function HelloWave() {
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 28,
+    fontSize: 30,
     lineHeight: 32,
     marginTop: -6,
   },
