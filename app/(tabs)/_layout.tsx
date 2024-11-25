@@ -6,7 +6,7 @@ import { HapticTab } from "@/components/HapticTab";
 import { IconSymbol } from "@/components/ui/IconSymbol";
 import TabBarBackground from "@/components/ui/TabBarBackground";
 import { Colors } from "@/constants/Colors";
-import { useColorScheme } from "@/hooks/useColorScheme";
+import { useColorScheme } from "react-native";
 
 export default function TabLayout() {
     const colorScheme = useColorScheme();
@@ -34,34 +34,34 @@ export default function TabLayout() {
                     tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
                 }}
             />
-            {/* <Tabs.Screen
+            <Tabs.Screen
                 name="search"
                 options={{
                     title: "Search",
-                    tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+                    tabBarIcon: ({ color }) => <IconSymbol size={28} name="search" color={color} />,
                 }}
-            /> */}
+            />
             <Tabs.Screen
                 name="explore"
                 options={{
                     title: "Explore",
-                    tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+                    tabBarIcon: ({ color }) => <IconSymbol size={28} name="explore.fill" color={color} />,
                 }}
             />
-            {/* <Tabs.Screen
+            <Tabs.Screen
                 name="saved"
                 options={{
                     title: "Saved",
-                    tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+                    tabBarIcon: ({ color }) => <IconSymbol size={28} name="bookmarks.fill" color={color} />,
                 }}
             />
             <Tabs.Screen
                 name="account"
                 options={{
                     title: "Me",
-                    tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+                    tabBarIcon: ({ color }) => <IconSymbol size={28} name="account-circle" color={color} />,
                 }}
-            /> */}
+            />
         </Tabs>
     );
 }

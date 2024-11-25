@@ -19,9 +19,9 @@ export default function HomeScreen() {
     const fetchData = useCallback(async () => {
         try {
             const [singleMoviesData, animeMoviesData, seriesMoviesData] = await Promise.all([
-                getMovies({ limit: 12, order: "modified:desc", "filters[type]": "single", "filters[year]": "2024" }),
-                getMovies({ limit: 12, order: "modified:desc", "filters[type]": "hoathinh", "filters[year]": "2024" }),
-                getMovies({ limit: 12, order: "modified:desc", "filters[type]": "series", "filters[year]": "2024" }),
+                getMovies({ limit: 6, order: "modified:desc", "filters[type]": "single", "filters[year]": "2024" }),
+                getMovies({ limit: 6, order: "modified:desc", "filters[type]": "hoathinh", "filters[year]": "2024" }),
+                getMovies({ limit: 6, order: "modified:desc", "filters[type]": "series", "filters[year]": "2024" }),
             ]);
             
             setMovies({
@@ -49,7 +49,9 @@ export default function HomeScreen() {
                 <ThemedText type="title">Phimmoi xin chào!</ThemedText>
                 <HelloWave />
             </ThemedView>
-            <MovieList data={movies.singleMovies} title="Phim lẻ" isLoading />
+            <MovieList data={movies.singleMovies} title="Phim lẻ mới nhất" isLoading />
+            <MovieList data={movies.animeMovies} title="Phim hoạt hình mới nhất" isLoading />
+            <MovieList data={movies.seriesMovies} title="Phim bộ mới nhất" isLoading />
         </ParallaxScrollView>
     );
 }

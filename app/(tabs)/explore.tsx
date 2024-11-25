@@ -10,7 +10,7 @@ import { IconSymbol } from "@/components/ui/IconSymbol";
 import { MovieList } from "@/components/MovieList";
 import { getMovies } from "@/services/movieService";
 
-export default function TabTwoScreen() {
+export default function Explore() {
     const [movies, setMovies] = useState({
         topSingleMovies: [],
         topAnimeMovies: [],

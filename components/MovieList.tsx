@@ -1,35 +1,40 @@
 import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
-import { ThemedView } from "@/components/ThemedView";
+
 import Movie from "../models/Movie";
+import { ThemedView } from "@/components/ThemedView";
+import { ThemedText } from "./ThemedText";
+import { Collapsible } from "./Collapsible";
 
 export function MovieList({ data: movies, title, isLoading }: { data: Array<Movie>; title: string; isLoading: boolean }) {
     return (
         <>
-            <View style={styles.movieListWrapper}>
-                <Text style={styles.movieListTitle}>{title}</Text>
+            <Collapsible title={title} isOpenTab={true}>
+                <View style={styles.movieListWrapper}>
+                    {/* <ThemedText style={styles.movieListTitle}>{title}</ThemedText> */}
 
-                <View style={styles.movieList}>
-                    {movies &&
-                        movies.map((movie) => (
-                            <View style={styles.movieWrapper} key={movie.id}>
-                                <View style={styles.movie}>
-                                    <View style={styles.image}>
-                                        <Image source={{ uri: movie.image }} style={styles.thumnail} />
-                                    </View>
-                                    <View style={styles.titleWrapper}>
-                                        <Text numberOfLines={1} ellipsizeMode="tail">
-                                            {movie.title}
-                                        </Text>
-                                        <Text style={styles.subTitle} numberOfLines={1} ellipsizeMode="tail">
-                                            {movie.enTitle}
-                                        </Text>
+                    <View style={styles.movieList}>
+                        {movies &&
+                            movies.map((movie) => (
+                                <View style={styles.movieWrapper} key={movie.id}>
+                                    <View style={styles.movie}>
+                                        <View style={styles.image}>
+                                            <Image source={{ uri: movie.image }} style={styles.thumnail} />
+                                        </View>
+                                        <View style={styles.titleWrapper}>
+                                            <Text numberOfLines={1} ellipsizeMode="tail">
+                                                {movie.title}
+                                            </Text>
+                                            <Text style={styles.subTitle} numberOfLines={1} ellipsizeMode="tail">
+                                                {movie.enTitle}
+                                            </Text>
+                                        </View>
                                     </View>
                                 </View>
-                            </View>
-                        ))}
+                            ))}
+                    </View>
                 </View>
-            </View>
+            </Collapsible>
         </>
     );
 }
@@ -48,12 +53,11 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         flexWrap: "wrap",
         justifyContent: "space-between",
-        paddingHorizontal: 10,
     },
     movieWrapper: {
         alignItems: "center",
         justifyContent: "center",
-        marginBottom: 10,
+        marginBottom: 20,
     },
     movie: {
         backgroundColor: "#eee",
