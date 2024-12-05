@@ -49,9 +49,9 @@ export default function HomeScreen() {
                 <ThemedText type="title">Phimmoi xin chào!</ThemedText>
                 <HelloWave />
             </ThemedView>
-            <MovieList data={movies.singleMovies} title="Phim lẻ mới nhất" isLoading />
-            <MovieList data={movies.animeMovies} title="Phim hoạt hình mới nhất" isLoading />
-            <MovieList data={movies.seriesMovies} title="Phim bộ mới nhất" isLoading />
+            <MovieList data={movies.singleMovies} title="Phim lẻ mới nhất" isLoading={isLoading} />
+            <MovieList data={movies.animeMovies} title="Phim hoạt hình mới nhất" isLoading={isLoading} />
+            <MovieList data={movies.seriesMovies} title="Phim bộ mới nhất" isLoading={isLoading} />
         </ParallaxScrollView>
     );
 }

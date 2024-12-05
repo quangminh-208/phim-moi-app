@@ -1,8 +1,7 @@
 import axios from "axios";
-// import "dotenv";
 
 const api = axios.create({
-    baseURL: "https://vietsubmoi.online",
+    baseURL: process.env.EXPO_PUBLIC_API_URL,
     timeout: 10000, // Request timeout (optional)
     headers: {
         "Content-Type": "application/json", // Default content-type

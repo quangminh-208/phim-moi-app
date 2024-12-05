@@ -7,8 +7,8 @@ import { IconSymbol } from "@/components/ui/IconSymbol";
 import { Colors } from "@/constants/Colors";
 import React from "react";
 
-export function Collapsible({ children, title, isOpenTab = false }: PropsWithChildren & { title: string; isOpenTab: boolean }) {
-    const [isOpen, setIsOpen] = useState(isOpenTab);
+export function Collapsible({ children, title, isExpand = false }: PropsWithChildren & { title: string; isExpand: boolean }) {
+    const [isOpen, setIsOpen] = useState(isExpand);
     const theme = useColorScheme() ?? "light";
 
     return (

@@ -1,37 +1,56 @@
 import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
 
-import Movie from "../models/Movie";
-import { ThemedView } from "@/components/ThemedView";
-import { ThemedText } from "./ThemedText";
+import Movie from "@/models/Movie";
 import { Collapsible } from "./Collapsible";
 
 export function MovieList({ data: movies, title, isLoading }: { data: Array<Movie>; title: string; isLoading: boolean }) {
     return (
         <>
-            <Collapsible title={title} isOpenTab={true}>
+            <Collapsible title={title} isExpand={true}>
                 <View style={styles.movieListWrapper}>
-                    {/* <ThemedText style={styles.movieListTitle}>{title}</ThemedText> */}
-
                     <View style={styles.movieList}>
-                        {movies &&
-                            movies.map((movie) => (
-                                <View style={styles.movieWrapper} key={movie.id}>
-                                    <View style={styles.movie}>
-                                        <View style={styles.image}>
-                                            <Image source={{ uri: movie.image }} style={styles.thumnail} />
-                                        </View>
-                                        <View style={styles.titleWrapper}>
-                                            <Text numberOfLines={1} ellipsizeMode="tail">
-                                                {movie.title}
-                                            </Text>
-                                            <Text style={styles.subTitle} numberOfLines={1} ellipsizeMode="tail">
-                                                {movie.enTitle}
-                                            </Text>
+                        {isLoading ? (
+                            <>
+                                {Array.from({ length: movies.length }).map((_, index) => (
+                                    <View style={styles.movieWrapper} key={index}>
+                                        <View style={styles.movie}>
+                                            <View style={styles.image}>
+                                                <Image
+                                                    source={{ uri: "https://critics.io/img/movies/poster-placeholder.png" }}
+                                                    style={styles.thumnail}
+                                                />
+                                            </View>
+                                            <View style={styles.titleWrapper}>
+                                                <Text></Text>
+                                                <Text style={styles.subTitle}></Text>
+                                            </View>
                                         </View>
                                     </View>
-                                </View>
-                            ))}
+                                ))}
+                            </>
+                        ) : (
+                            <>
+                                {movies &&
+                                    movies.map((movie) => (
+                                        <View style={styles.movieWrapper} key={movie.id}>
+                                            <View style={styles.movie}>
+                                                <View style={styles.image}>
+                                                    <Image source={{ uri: movie.image }} style={styles.thumnail} />
+                                                </View>
+                                                <View style={styles.titleWrapper}>
+                                                    <Text numberOfLines={1} ellipsizeMode="tail">
+                                                        {movie.title}
+                                                    </Text>
+                                                    <Text style={styles.subTitle} numberOfLines={1} ellipsizeMode="tail">
+                                                        {movie.enTitle}
+                                                    </Text>
+                                                </View>
+                                            </View>
+                                        </View>
+                                    ))}
+                            </>
+                        )}
                     </View>
                 </View>
             </Collapsible>

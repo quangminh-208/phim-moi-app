@@ -52,9 +52,9 @@ export default function Explore() {
                 <ThemedText type="title">Khám phá</ThemedText>
             </ThemedView>
 
-            <MovieList data={movies.topSingleMovies} title="Top phim lẻ" isLoading />
-            <MovieList data={movies.topAnimeMovies} title="Top phim hoạt hình" isLoading />
-            <MovieList data={movies.topSeriesMovies} title="Top phim bộ" isLoading />
+            <MovieList data={movies.topSingleMovies} title="Top phim lẻ" isLoading={isLoading} />
+            <MovieList data={movies.topAnimeMovies} title="Top phim hoạt hình" isLoading={isLoading} />
+            <MovieList data={movies.topSeriesMovies} title="Top phim bộ" isLoading={isLoading} />
 
         </ParallaxScrollView>
     );
